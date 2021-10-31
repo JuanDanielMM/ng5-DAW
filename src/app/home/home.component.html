@@ -1,10 +1,16 @@
 
 <div class="container color-dark">
   <div class="col">
-    <p> Add a bucket list item </p>
+    <p> Add a bucket list item - Your bucket list ({{ itemCount }})</p>
   </div>
   <div class="col">
-    <p> Your bucket list ({{ itemCount }})</p>
+    <form>
+      <input type="text" class="txt1" name="item" placeholder=" User " [(ngModel)]= "user">
+      <input type="password" class="txt1" name="item" placeholder=" Password " [(ngModel)]= "pass">
+     <input type="submit" class="btn1" value="login" (click)="loginUser()">
+    </form>
+
+    {{ token }}
   </div>
 </div>
 <div class="container color-light" [@goals] = "goals.length">
@@ -19,7 +25,7 @@
   <div class="col">
     <p class="life-container" *ngFor = "let goal of goals; let i = index" (click) = "removeItem(i)">
     <!--<p class="life-container" *ngFor = "let goal of goals; let i = index">-->
-      {{ goal }}
+      {{ goal.description }}
     </p>
   </div>
 </div>
